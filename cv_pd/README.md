@@ -1,6 +1,6 @@
 # 亚马逊云科技【黑客松大赛·初赛】计算机视觉赛题——从图像中检测人
 
-目标检测在图像中找到特定类别的物体并用边界框标记出来。本次比赛，我们进行人(person)的检测。
+目标检测在图像中找到特定类别的物体并用边界框标记出来的任务。本次比赛，我们进行人(person)的检测。
 
 ## 数据准备
 
@@ -10,7 +10,7 @@
 bash prepare_data.sh
 ```
 
-运行结束后，在`data/`文件夹中会包含`train/`, `val/`和`test/`三个图片文件夹，以及训练集和验证集的标注文件`train.json`, `val.json`。
+运行结束后，在`data/`文件夹中会包含`train2017/`, `val2017/`两个图片文件夹（由于我们将原有validation set切分为新的validation set和test set，测试图片也在val2017中），训练集和验证集的标注文件`train_gt.json`, `val_gt.json`以及测试集图片信息`test.json`。
 
 ## 数据格式
 标注文件的数据格式遵从COCO的原有格式。`.json`录入后包含`'info', 'licenses', 'images', 'annotations', 'categories'`信息。
@@ -56,7 +56,7 @@ annotations中的每一条annotation对应于一个物体，包含其边界框�
     "score": float,
 }
 ```
-其中score表示对该物体的置信度。
+其中score表示对该物体的置信度。示例提交文件如[链接](https://github.com/cocodataset/cocoapi/blob/master/results/instances_val2014_fakebbox100_results.json)中所示。
 
 ## 本地评测
 

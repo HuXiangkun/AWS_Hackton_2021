@@ -14,6 +14,7 @@ cocogt = COCO(args.gt)
 cocopred = cocogt.loadRes(args.pred)
 
 cocoeval = COCOeval(cocogt, cocopred, args.anntype)
+cocoeval.params.catIds = [1]
 cocoeval.evaluate()
 cocoeval.accumulate()
 cocoeval.summarize()
