@@ -1,6 +1,6 @@
 # 亚马逊云科技【黑客松大赛·初赛】计算机视觉赛题——从图像中检测人
 
-目标检测是在图像中找到特定类别的物体并用边界框标记出来。本次比赛，我们进行人(person)的检测。
+目标检测在图像中找到特定类别的物体并用边界框标记出来。本次比赛，我们进行人(person)的检测。
 
 ## 数据准备
 
@@ -58,10 +58,35 @@ annotations中的每一条annotation对应于一个物体，包含其边界框�
 ```
 其中score表示对该物体的置信度。
 
-## 评测脚本
+## 本地评测
 
-我们将使用COCO的评测脚本。首先需要按照[COCOAPI](https://github.com/cocodataset/cocoapi.git):
+文件夹中的`eval.py`为本次比赛的评测脚本。我们将使用COCO的评测工具。首先需要安装[COCOAPI](https://github.com/cocodataset/cocoapi.git):
 
 ```bash
 pip install pycocotools
 ```
+
+安装完成后运行：
+
+```bash
+python eval.py --gt gt.json --pred pred.json
+```
+
+程序将会输出不同IoU匹配标准，不同物体大小区间的"mean average precision"，简称AP，例如:
+
+```bash
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.007
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.008
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.008
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.004
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.004
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.003
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.001
+```
+
+其中，第一行`(AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ]`是我们最终选用的评比指标。
