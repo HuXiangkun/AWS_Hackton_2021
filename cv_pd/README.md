@@ -10,7 +10,7 @@
 bash prepare_data.sh
 ```
 
-运行结束后，在`data/`文件夹中会包含`train2017/`, `val2017/`两个图片文件夹（由于我们将原有validation set切分为新的validation set和test set，测试图片也在val2017中），训练集和验证集的标注文件`train_gt.json`, `val_gt.json`以及测试集图片信息`test.json`。
+运行结束后，在`data/`文件夹中会包含`train/`, `val/`, `test/`三个图片文件夹，训练集和验证集的标注文件`train_gt.json`, `val_gt.json`以及测试集图片信息`test.json`。
 
 ## 数据格式
 标注文件的数据格式遵从COCO的原有格式。`.json`录入后包含`'info', 'licenses', 'images', 'annotations', 'categories'`信息。`test.json`不包含`annotations`信息。
@@ -21,7 +21,7 @@ bash prepare_data.sh
 {
     'license': 4,
     'file_name': '000000397133.jpg',
-    'coco_url': 'http://images.cocodataset.org/val2017/000000397133.jpg',
+    'folder': 'val',
     'height': 427,
     'width': 640,
     'date_captured': '2013-11-14 17:02:52',
@@ -29,7 +29,7 @@ bash prepare_data.sh
     'id': 397133
 }
 ```
-参赛者可通过解析`coco_url`字段提取出图片在`data/`文件夹中的相对路径，比如`val2017/000000397133.jpg`。
+参赛者可通过解析`folder`和`file_name`字段组合出图片在`data/`文件夹中的相对路径，比如`val/000000397133.jpg`。
 
 annotations中的每一条annotation对应于一个物体，包含其边界框，所在图片的image_id，类别等，例如：
 
