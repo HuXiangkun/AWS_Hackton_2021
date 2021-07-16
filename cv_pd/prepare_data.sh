@@ -1,0 +1,10 @@
+mkdir data
+cd data
+wget http://images.cocodataset.org/zips/train2017.zip
+unzip train2017.zip
+wget http://images.cocodataset.org/zips/val2017.zip
+unzip val2017.zip
+wget https://dgl-data.s3.us-west-2.amazonaws.com/dataset/hackathon2021/test.json
+wget https://dgl-data.s3.us-west-2.amazonaws.com/dataset/hackathon2021/train_gt.json
+wget https://dgl-data.s3.us-west-2.amazonaws.com/dataset/hackathon2021/val_gt.json
+cd ..
