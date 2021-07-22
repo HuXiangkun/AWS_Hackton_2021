@@ -46,7 +46,7 @@ annotations中的每一条annotation对应于一个物体，包含其边界框�
     'id': 448259
 }
 ```
-具体要检测的关键点包括手，脚，肩等17个关键点。keypoints是一组`x,y,v`值，表示每个关键点在图上的x,y坐标和是否被标注以及是否可见（v=0：未被标注，v=1：被标注但不可见，v=2：被标注且可见）。
+具体要检测的17个关键点包括nose, left_eye, right_eye, left_ear, right_ear, left_shoulder, right_shoulder, left_elbow, right_elbow, left_wrist, right_wrist, left_hip, right_hip, left_knee, right_knee, left_ankle, right_ankle。keypoints是一组`x,y,v`值，表示每个关键点在图上的x,y坐标和是否被标注以及是否可见（v=0：未被标注，v=1：被标注但不可见，v=2：被标注且可见）。
 
 ## 提交格式
 
