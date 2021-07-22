@@ -2,7 +2,7 @@ import os
 import json
 import shutil
 
-with open('test.json', 'r') as f:
+with open('keypoint_test.json', 'r') as f:
     data = json.load(f)
 
 for img in data['images']:
